@@ -1,6 +1,6 @@
 def GCD(n1 , n2):
     minLengh = min(n1,n2)
-    gcd = 0 
+    gcd = 1
     i = 1
     while(i < minLengh):
         rn1 =  n1 % i 
