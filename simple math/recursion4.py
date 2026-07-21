@@ -32,10 +32,38 @@ class recusion :
         
         self.subSequentEqualToSum(arr , i + 1 , n , arrNew ,  s , sum)
 
+    def returnOnlyOneStringEqualToSum(self , n , i , arr , newArr , s  ,sum):
+        if i == n :
+            if sum == s :
+                print(newArr)
+                return True
+            else : return False
+
+        
+        newArr.append(arr[i])
+
+        sum = sum + arr[i]
+
+        if self.returnOnlyOneStringEqualToSum( n , i + 1  , arr , newArr , s  ,sum) :
+            return newArr
+
+        newArr.pop()
+
+        sum = sum - arr[i]
+
+        if self.returnOnlyOneStringEqualToSum( n , i + 1, arr , newArr , s  ,sum) :
+            return newArr
+        
+        return False
+
+
+
+
 
 rec = recusion()
 arrNew = []
-rec.subSequentEqualToSum([1, 2 , 1] , 0 , 3 , arrNew , 0 , 2)
+rec.returnOnlyOneStringEqualToSum(4 , 0 ,[2 , 5 , 1 , 8] , arrNew , 8 , 0)
+
 
 # TC  : O(2 ** n)
 # SC : O(n)
