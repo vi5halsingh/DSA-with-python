@@ -35,7 +35,7 @@ obj = recursion()
 # print(ans)
 
 
-if obj.isStringPalindrom("ABCDCBe", 0) :
+if obj.isStringPalindrom("ABCDCB", 0) :
     print(f"string is palindrom")
 else :
     print("not a palindrom string")
