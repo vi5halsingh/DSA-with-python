@@ -1,10 +1,14 @@
 class Hasing :
-    def StringOP(target , string , newArr, c ):
-        for i in range(0 , len(string)):
-            if newArr[string[i] - target ] == target :
-                c += 1
-        return c
+    def StringOP(self , target , string , newArr):
 
+        targetIndex = ord(target) - ord("a")
+        for ch in string :
+            index = ord(ch) - ord("a")
+
+            if index == targetIndex :
+                newArr[targetIndex] += 1  
+            
+        return newArr[targetIndex]
 
 
     def checkIterationInString(self , string) :
@@ -23,9 +27,13 @@ hash = Hasing()
 
 s = "aanandi"
 
-# newarr = [0] * 26
+newarr = [0] * 26
 
-print(hash.checkIterationInString(s))
+print(hash.StringOP("n", s ,  newarr))
 
-# hash.StringOP("a", "abradsa" , [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 0)
+
+# time complexity is : O(1)
+# space complexity is : O(1)
+
+
 
